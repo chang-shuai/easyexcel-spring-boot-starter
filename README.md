@@ -289,6 +289,28 @@ public class CustomExcelValidator implements ExcelValidator<DemoData> {
     }
 }
 ```
+对表头自定义校验
+```java
+@Component
+public class PointExcelHeadValidator implements ExcelHeadValidator<PointExcelDto> {
+    Map<Integer, String> pointStandardHeadMap;
+
+    public PointExcelHeadValidator() {
+        this.pointStandardHeadMap = new HashMap<>();
+        this.pointStandardHeadMap.put(0, "*地块名称");
+        this.pointStandardHeadMap.put(1, "*点位名称");
+        this.pointStandardHeadMap.put(2, "*顺序");
+        this.pointStandardHeadMap.put(3, "*经度");
+        this.pointStandardHeadMap.put(4, "*纬度");
+        this.pointStandardHeadMap.put(5, "*高度");
+    }
+
+    @Override
+    public Map<Integer, String> getStandardHeadMap() {
+        return this.pointStandardHeadMap;
+    }
+}
+```
 
 ## 3. 校验结果接收
 
