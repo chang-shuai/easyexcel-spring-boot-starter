@@ -1,3 +1,13 @@
+# 原作者 zzuhkp
+
+https://github.com/zzuhkp/easyexcel-spring-boot-starter
+
+在原项目基础上增加了 
+- 表头的校验
+- Spring-Boot 版本 2.0.4.RELEASE
+- spring-webmvc 版本 5.0.10.RELEASE
+- easyexcel 版本 2.2.10
+
 # 概述
 
 基于 easyexcel 实现的 spring-boot-starter, 支持 Web 环境下通过 `@ExcelParam` 及 `@ExcelResponse` 注解导入和导出
