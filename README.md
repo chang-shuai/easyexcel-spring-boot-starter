@@ -4,9 +4,9 @@ https://github.com/zzuhkp/easyexcel-spring-boot-starter
 
 在原项目基础上增加了 
 - 表头的校验
-- Spring-Boot 版本 2.0.4.RELEASE
-- spring-webmvc 版本 5.0.10.RELEASE
-- easyexcel 版本 2.2.10
+- Spring-Boot 版本 2.3.12.RELEASE
+- spring-webmvc 版本 5.2.15.RELEASE
+- easyexcel 版本 3.1.1
 
 # 概述
 

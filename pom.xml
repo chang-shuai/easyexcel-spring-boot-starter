@@ -19,19 +19,19 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <scope>provided</scope>
-            <version>2.0.4.RELEASE</version>
+            <version>2.3.12.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>easyexcel</artifactId>
             <scope>provided</scope>
-            <version>2.2.10</version>
+            <version>3.1.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <scope>provided</scope>
-            <version>5.0.10.RELEASE</version>
+            <version>5.2.15.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>

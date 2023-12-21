@@ -3,7 +3,7 @@ package easyexcel.resolver;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
-import com.alibaba.excel.metadata.CellData;
+import com.alibaba.excel.metadata.data.ReadCellData;
 import com.alibaba.excel.util.ConverterUtils;
 import easyexcel.annotation.ExcelParam;
 import easyexcel.validator.*;
@@ -91,7 +91,7 @@ public class ExcelParamResolver implements HandlerMethodArgumentResolver, Applic
 
 
             @Override
-            public void invokeHead(Map<Integer, CellData> headMap, AnalysisContext context) {
+            public void invokeHead(Map<Integer, ReadCellData<?>> headMap, AnalysisContext context) {
                 Map<Integer, String> importHeadMap = ConverterUtils.convertToStringMap(headMap, context);
                 boolean pass = validateIfApplicable(methodParameter, importHeadMap, context);
                 if (!pass) {
@@ -144,7 +144,7 @@ public class ExcelParamResolver implements HandlerMethodArgumentResolver, Applic
         }
         Class<?> headClazz = context.currentReadHolder().excelReadHeadProperty().getHeadClazz();
         List<ExcelHeadValidator<Object>> validators =
-                this.applicationContext.getBeansOfType(ExcelHeadValidator.class).values().stream().filter(item -> {
+                this.applicationContext.getBeanProvider(ExcelHeadValidator.class).stream().filter(item -> {
                     Class<?> component = ResolvableType.forInstance(item).as(ExcelHeadValidator.class).resolveGeneric(0);
                     return component == Object.class || component.isAssignableFrom(headClazz);
                 }).map(item -> (ExcelHeadValidator<Object>) item).collect(Collectors.toList());
@@ -166,7 +166,7 @@ public class ExcelParamResolver implements HandlerMethodArgumentResolver, Applic
         }
         Class<?> headClazz = readRows.getExcelReadHeadProperty().getHeadClazz();
         List<ExcelValidator<Object>> validators =
-                this.applicationContext.getBeansOfType(ExcelValidator.class).values().stream().filter(item -> {
+                this.applicationContext.getBeanProvider(ExcelValidator.class).stream().filter(item -> {
                     Class<?> component = ResolvableType.forInstance(item).as(ExcelValidator.class).resolveGeneric(0);
                     return component == Object.class || component.isAssignableFrom(headClazz);
                 }).map(item -> (ExcelValidator<Object>) item).collect(Collectors.toList());
